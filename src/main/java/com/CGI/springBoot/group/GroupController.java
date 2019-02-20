@@ -81,9 +81,9 @@ public class GroupController {
 	@PutMapping("{id}")
 	public ResponseEntity<?> updateGroup(@PathVariable(value = "id") int id, @RequestBody Group group) {
 		Group groupTrouver = groupRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Group", "id", id));
-
 		groupTrouver.setTitle(group.getTitle());
 		groupTrouver.setUserList(group.getUserList());
+
 		groupRepository.save(groupTrouver);
 		return new ResponseEntity<>(groupRepository.save(groupTrouver), HttpStatus.OK);
 	}
