@@ -30,9 +30,6 @@ public class Group {
 	@JsonIgnoreProperties("group")
 	private List<User> userList = new ArrayList<>();
 
-	public Group() {
-	}
-
 	public Group(@NotBlank String title, List<User> userList) {
 		this.title = title;
 		this.userList = userList;
