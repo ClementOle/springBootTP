@@ -2,6 +2,9 @@ package com.CGI.springBoot.group;
 
 import com.CGI.springBoot.user.User;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -12,6 +15,9 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "groupDemo")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Group {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,30 +35,6 @@ public class Group {
 
 	public Group(@NotBlank String title, List<User> userList) {
 		this.title = title;
-		this.userList = userList;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public List<User> getUserList() {
-		return userList;
-	}
-
-	public void setUserList(List<User> userList) {
 		this.userList = userList;
 	}
 

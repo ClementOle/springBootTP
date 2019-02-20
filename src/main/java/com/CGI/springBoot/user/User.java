@@ -3,6 +3,9 @@ package com.CGI.springBoot.user;
 import com.CGI.springBoot.account.Account;
 import com.CGI.springBoot.group.Group;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -13,6 +16,9 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,8 +43,6 @@ public class User {
 	@JsonIgnoreProperties("userList")
 	private Group group;
 
-	public User() {
-	}
 
 	public User(@NotBlank String firstName, @NotBlank String lastName, String nickName, List<Account> accountList, Group group) {
 		this.firstName = firstName;
@@ -48,53 +52,6 @@ public class User {
 		this.group = group;
 	}
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getNickName() {
-		return nickName;
-	}
-
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
-	}
-
-	public List<Account> getAccountList() {
-		return accountList;
-	}
-
-	public void setAccountList(List<Account> accountList) {
-		this.accountList = accountList;
-	}
-
-	public Group getGroup() {
-		return group;
-	}
-
-	public void setGroup(Group group) {
-		this.group = group;
-	}
 
 	@Override
 	public boolean equals(Object o) {
